@@ -139,12 +139,29 @@ exports.exploreRecipe = async(req, res) => {
   // Delete Recipe
 async function deleteRecipe(){
   try {
-    await Recipe.deleteOne({ name: 'chicken' });
+    await Recipe.deleteOne({ name: 'JAPAN CHICKEN' });
   } catch (error) {
     console.log(error);
   }
 }
-//deleteRecipe();
+deleteRecipe();
+
+exports.about=(req,res)=>{
+    try{
+            res.render('about');
+    }catch(error)
+    {
+        res.send(500).send({message:error.message || "error occured"})
+    }
+}
+exports.contact=(req,res)=>{
+    try{
+            res.render('contact');
+    }catch(error)
+    {
+        res.send(500).send({message:error.message || "error occured"})
+    }
+}
 
 
 // Update Recipe
